@@ -3,99 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src = "js-script.js" defer></script>
+    <link rel="stylesheet" href = "style.css"> 
     <title>RPS</title>
 </head>
 <body>
-    <script>
 
-        //main        
+    <h1 id = "header">This is Rock Paper Scissors!</h1>
 
-        runMatch();
+    <div id = "divMain">
+        <p>What is your move?</p>
 
-        //run Match
-        function runMatch(){
-            console.log("Let's play a game of Rock Paper Scissors!")
+        <button id="btnRock">Rock</button>
+        <button id="btnPaper">Paper</button>
+        <button id="btnScissor">Scissor</button>
 
-            let botScore = 0;
-            let humanScore = 0;
-
-            while (botScore < 5 && humanScore < 5) {
-                console.log("Current score is human: " + humanScore + " vs bot: " + botScore);
-
-                let roundResults = runRound();
-                if (roundResults == "human") {humanScore = humanScore + 1}
-                else if (roundResults == "bot") {botScore = botScore + 1}
-            }
-
-            if (botScore > humanScore) {console.log("Computer WON!")} else {console.log("Human WON!")}
-
-
-
-        }
+        <div id="scoreboard">This is the Scoreboard</div>
+    </div>
     
-        //run round
-        function runRound(){       
-
-        let varHumanChoice = getHumanChoice();
-        console.log(varHumanChoice);
-
-        let varComputerChoice = getComputerChoice();
-        console.log(varComputerChoice);
-
-        console.log(checkWhoWon(varHumanChoice, varComputerChoice));
-        return checkWhoWon(varHumanChoice, varComputerChoice);
-        }
-
-
-        // get input
-            //to-do: What if user iputs invalid values
-        function getHumanChoice() {
-            return prompt("Rock, Paper or Scissor?", "Rock")
-        }
-
-        // generate random value for PC
-        function getComputerChoice() {
-            let randVar = Math.random()
-            let computerHand = "temp"
-
-            if (randVar <= 0.33) {
-                computerHand = "Rock"
-            } else if (randVar <= 0.66) {
-                computerHand = "Paper"
-            } else (
-                computerHand = "Scissor"
-            )
-            return computerHand
-        }
-
-
-
-        // Check who won
-        function checkWhoWon(human, bot){
-            let whoWon = "bot"
-
-            if (bot == "Rock" & human == "Paper") {whoWon = "human"}
-            else if (bot == "Paper" & human == "Scissor") {whoWon = "human"}
-            else if (bot == "Scissor" & human == "Rock") {whoWon = "human"}
-
-            else if (bot == human) {whoWon = "tie"}
-
-            return whoWon;
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </script>
 </body>
 </html>
